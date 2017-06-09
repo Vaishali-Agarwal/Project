@@ -1,0 +1,25 @@
+#!/usr/bin/python
+
+import sys,os
+
+f_name=sys.argv[1:]
+
+def mtouch(f):
+	if os.path.exists(f):
+		os.utime(f,None)
+	else:
+		open(f,'a+').close()
+
+for i in f_name:
+
+	if os.path.isdir(i):
+		os.utime(i,None)
+		pass
+	else :
+		mtouch(i)
+
+
+
+
+
+
